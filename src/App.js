@@ -8,7 +8,7 @@ function App() {
   const [loading, setLoading] = useState(false)
   const env = process.env.NODE_ENV
 
-  let URL = 'http://localhost:8888/.netlify/functions/meta'
+  let URL = 'https://instalead.netlify.app/.netlify/functions/meta'
 
   // if (env === "development") {
   //   URL = "http://localhost:4000"
