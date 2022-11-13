@@ -8,13 +8,12 @@ function App() {
   const [loading, setLoading] = useState(false)
   const env = process.env.NODE_ENV
 
-  let URL = 'https://instalead.netlify.app/.netlify/functions/meta'
-
-  // if (env === "development") {
-  //   URL = "http://localhost:4000"
-  // } else {
-  //   URL = 'http://localhost:8888/.netlify/functions/meta'
-  // }
+  let URL
+  if (env === "development") {
+    URL = "http://localhost:8888/.netlify/functions/meta"
+  } else {
+    URL = 'https://instalead.netlify.app/.netlify/functions/meta'
+  }
 
   const handleClick = () => {
     if (url === '' || url === undefined || url === null) {
@@ -23,7 +22,6 @@ function App() {
 
 
       setLoading(true)
-      console.log(`${URL}/?url=${url}`)
       fetch(`${URL}/?url=${url}`)
         .then(res => {
           setLoading(false)
