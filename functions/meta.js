@@ -4,7 +4,7 @@ const axios = require("axios")
 require('dotenv').config()
 
 
-exports.handler = async function (event, context) {
+exports.handler = async function (event, context, callback) {
     const URL = event.queryStringParameters.url
     if (URL == undefined) {
         return {
@@ -75,11 +75,11 @@ exports.handler = async function (event, context) {
 
         await browser.close();
 
-        return {
+        callback(null, {
             statusCode: 200,
             body: JSON.stringify({
                 status: status
             })
-        }
+        })
     }
 }
