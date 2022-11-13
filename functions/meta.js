@@ -6,7 +6,7 @@ require('dotenv').config()
 
 exports.handler = async function (event, context, callback) {
     const URL = event.queryStringParameters.url
-    if (URL == undefined) {
+    if (URL === undefined) {
         return {
             statusCode: 200,
             body: JSON.stringify({
@@ -75,11 +75,11 @@ exports.handler = async function (event, context, callback) {
 
         await browser.close();
 
-        await callback(null, {
+        return {
             statusCode: 200,
             body: JSON.stringify({
-                status: status
+                status: "complete"
             })
-        })
+        }
     }
 }
