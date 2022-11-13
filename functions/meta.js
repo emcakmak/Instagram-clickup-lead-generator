@@ -75,7 +75,7 @@ exports.handler = async function (event, context, callback) {
 
         await browser.close();
 
-        callback(null, {
+        await callback(null, {
             statusCode: 200,
             body: JSON.stringify({
                 status: status
